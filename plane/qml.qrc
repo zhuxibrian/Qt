@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>PlaneSource.qml</file>
+        <file>files/plane.obj</file>
+        <file>files/SKY.JPG</file>
+        <file>files/toyplane.obj</file>
+        <file>files/file.obj</file>
+        <file>ConfigBoard.qml</file>
+        <file>main.qml</file>
+    </qresource>
+</RCC>
