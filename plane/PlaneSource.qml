@@ -23,9 +23,9 @@ Entity {
         viewCenter: Qt.vector3d( 0.0, 0.0, 0.0 )
     }
 
-    OrbitCameraController {
-        camera: camera
-    }
+//    FirstPersonCameraController {
+//        camera: camera
+//    }
 
     components: [
         RenderSettings {
@@ -64,20 +64,32 @@ Entity {
         }
     }
 
-//    QQ2.NumberAnimation {
-//        target: toyplaneTransform
-
-//        running: true
-//        loops: QQ2.Animation.Infinite
-
-//        property: "angle"
-//        duration: 10000
-
-//        to: angle
-//    }
-
     Entity {
         id: torusEntity
         components: [ toyplaneMesh, material, toyplaneTransform ]
+    }
+
+    ConeMesh {
+        id: coneMesh
+        bottomRadius: 0.5
+        topRadius: 0
+        length : 3
+        rings : 10
+        slices: 10
+    }
+
+    Transform {
+        id: coneMeshTransform
+        matrix: {
+            var m = Qt.matrix4x4();
+            m.rotate(270, Qt.vector3d(0, 0, 1));
+            m.translate(Qt.vector3d(-15, 0, 0));
+            return m;
+        }
+    }
+
+    Entity {
+        id: coneEntity
+        components: [ coneMesh, material, coneMeshTransform ]
     }
 }
